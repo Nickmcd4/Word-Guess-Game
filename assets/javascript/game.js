@@ -1,3 +1,5 @@
+//Here lies first attempt, may he RIP
+
 /*var fishTypes = ["cod", "guppy","shark", "trout", "eel", "mackerel", "salmon", "goldfish" ];
 var wins = 0;
 var loss = 0;
@@ -75,14 +77,15 @@ startGame();
 */
 
 
-  var fish = ["octopus", "shark","anglerfish","clownfish","squid", "makerel", "bluegill"];
+  var fish = ["octopus", "shark","anglerfish","clownfish","squid", "makerel", "bluegill", "stingray", "dolphin", "seahorse", "turtle", "whale", "porpoise","seastar", "orca", "jellyfish"];
   var word = "";
   var letters= [];
-  var underScores = [];
   var wrongLetters = [];
+  var underScores = [];
+  
 
   var num = 0;
-  var guessesLeft = 12;
+  var guessesLeft = 9;
   var losses = 0;
   var wins= 0;
   var underScores = [];
@@ -92,25 +95,25 @@ startGame();
     word = fish[Math.floor(Math.random() * fish.length)];
     letters = word.split("");
     num = letters.length;
-    guessesLeft = 12;
+    guessesLeft = 9;
     wrongLetters = [];
     underScores = [];
-    console.log(word)
+    //console.log(word)
 
     for(var i = 0; i < num; i++) {
       underScores.push("_")
-      console.log(underScores)
+      //console.log(underScores)
     }
            //add all new stats to html page 
-    document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("answer").innerHTML = underScores.join(" ");
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
 
 
   };
     
-
+//We out here tryna function, man we out here tryna function 
 function letterCheck (letter) {
 
   var letterInWord = false;
@@ -126,7 +129,7 @@ function letterCheck (letter) {
     for(var i = 0; i < num; i++) {
       if (word[i] == letter) {
         underScores[i] = letter;
-        console.log(underScores)
+        //console.log(underScores)
       }         
     }
   } else {
@@ -139,64 +142,35 @@ function letterCheck (letter) {
 
 gameStart();
 
-
+//win lose where to go
 function newGame() {
     document.getElementById("answer").innerHTML = underScores.join(" ");
-    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;     //collects all the html and assigns variables
     document.getElementById("answersGuessed").innerHTML = wrongLetters;
 
    
-  if(letters.toString() == underScores.toString()) {
+  if(letters.toString() == underScores.toString()) { //winners get some points 
     wins++
     document.getElementById("wins").innerHTML = wins;
+    alert("YOU WIN!! The word was: " + word);
     gameStart();
-    alert("YOU WIN!!");
-  } else if (guessesLeft===0) {
+    
+  } else if (guessesLeft===0) { //losers get points upon losing
       losses++
       document.getElementById("losses").innerHTML = losses;
+      alert("NICE TRY LOSER! The word was: " + word);
       gameStart();
-      alert("NICE TRY LOSER");
+      
   }
 };
 
 //event listener
-document.onkeyup = function(event) {
+document.onkeyup = function(event) { 
   var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-  console.log(userGuess);
-  newGame();
   letterCheck(userGuess);
+  newGame();
+  //console.log(userGuess);
 };
-
-// //end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 var sample = document.getElementById("foobar");

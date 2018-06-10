@@ -22,19 +22,20 @@ html, body {
   100% {
     transform: skew(0deg, 0deg) scale(1.35, 1.35);
     filter: saturate(100%) invert(0%);
+    filter: hue-rotate(10%);
   }
   
   25% {
-    filter: saturate(180%) invert(10%);
+    filter: saturate(150%) invert(10%) hue-rotate(5%);
   }
   
   50% {
     transform: skew(2deg, 2deg) scale(1.35, 1.35);
-    filter: saturate(100%) invert(0%);
+    filter: saturate(175%) invert(0%) hue-rotate(23%);
   }
   
   75% {
-    filter: saturate(150%) invert(20%);
+    filter: saturate(255%) invert(20%);
   }
 }
 
@@ -47,6 +48,7 @@ html, body {
     text-align: center;
     width: 100%;
     padding-top: 45px;
+    color: #0F1212;
 }
 .text_2 {
     font-family: 'Pacifico', cursive;
@@ -57,6 +59,8 @@ html, body {
     text-align: center;
     width: 100%;
     padding-top: 200px;
+    
+    color: #243938;
 }
 
 @keyframes fadeIn { 
@@ -72,7 +76,7 @@ html, body {
       font-size: 25px;
       text-align: center;
       width: 100%;
-      padding-top: 280px;
+      padding-top: 320px;
   }
 
   .text_3 {
@@ -99,7 +103,7 @@ html, body {
     z-index: 1;
     position: absolute;
     bottom: 10px;
-    margin-left: 45%;
+    margin-left: 46%;
 }
 
 .text_4 {
